@@ -83,7 +83,7 @@
   }
   .hero-mascot {
     flex: 0 0 44%;
-    background: linear-gradient(108deg, var(--navy) 0%, var(--navy) 12%, #F5DDD8 38%);
+    background: var(--navy);
     display: flex; align-items: flex-end; justify-content: center;
     overflow: hidden;
     position: relative;
@@ -92,7 +92,8 @@
     width: 100%;
     max-width: 520px;
     height: auto;
-    mix-blend-mode: multiply;
+    filter: brightness(0) sepia(1) saturate(6) hue-rotate(3deg)
+            drop-shadow(0 0 60px rgba(212,168,67,0.45));
     display: block;
     animation: mascot-float 5s ease-in-out infinite;
   }
