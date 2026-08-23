@@ -138,7 +138,7 @@
   .section-sub { font-size: 16px; color: var(--ink-2); max-width: 560px; text-wrap: balance; line-height: 1.65; }
 
   /* ── APP PREVIEW ── */
-  .app-preview { background: var(--surface-2); }
+  .app-preview { background: var(--navy); }
   .app-preview .inner { display: flex; align-items: center; gap: 64px; flex-wrap: wrap; }
   .app-preview .text-col { flex: 1; min-width: 280px; }
   .app-preview .phones-col { flex: 1; min-width: 300px; display: flex; gap: 16px; justify-content: center; align-items: flex-end; }
@@ -251,7 +251,7 @@
   .card-badge svg { flex-shrink: 0; }
 
   /* ── PROBLEM ── */
-  .problem { background: var(--surface-2); }
+  .problem { background: var(--navy); }
   .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 40px; }
   .problem-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 20px; display: flex; gap: 16px; align-items: flex-start; }
   .problem-card .pc-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
@@ -379,6 +379,36 @@
     .phone.center { width: 155px; transform: translateY(0); }
     footer { justify-content: center; text-align: center; }
   }
+
+  /* ── DARK SECTION OVERRIDES ── */
+  /* App Preview em navy */
+  .app-preview .section-eyebrow { color: var(--gold); }
+  .app-preview .section-title { color: #fff; }
+  .app-preview .section-sub { color: rgba(255,255,255,0.55); }
+  .app-preview .feature-list li { color: rgba(255,255,255,0.65); }
+  /* Phones recebem borda sutil para separar do fundo navy */
+  .app-preview .phone {
+    background: #182338;
+    border-color: rgba(255,255,255,0.10);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .app-preview .phone.center {
+    box-shadow: 0 32px 80px rgba(0,0,0,0.70);
+  }
+  .app-preview .screen-label { color: rgba(255,255,255,0.40); }
+  .app-preview .screen-label[style*="font-weight:700"] { color: rgba(255,255,255,0.80); }
+
+  /* Problem em navy */
+  .problem .section-eyebrow { color: var(--gold); }
+  .problem .section-title { color: #fff; }
+  .problem .section-sub { color: rgba(255,255,255,0.55); }
+  .problem-card {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.09);
+  }
+  .problem-card h3 { color: rgba(255,255,255,0.88); }
+  .problem-card p { color: rgba(255,255,255,0.50); }
+
 </style>
 
 <!-- NAV -->
