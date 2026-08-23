@@ -63,34 +63,43 @@
   /* ── HERO ── */
   .hero {
     background: var(--navy);
-    padding: 100px 24px 60px;
+    padding: 0;
     position: relative; overflow: hidden;
   }
   .hero::before {
     content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse 70% 80% at 20% 50%, rgba(212,168,67,0.07) 0%, transparent 60%),
-                radial-gradient(ellipse 60% 60% at 90% 20%, rgba(212,168,67,0.05) 0%, transparent 50%);
-    pointer-events: none;
+    background: radial-gradient(ellipse 60% 80% at 15% 60%, rgba(212,168,67,0.08) 0%, transparent 60%);
+    pointer-events: none; z-index: 0;
   }
   .hero-inner {
-    max-width: 1040px; margin: 0 auto;
-    display: flex; align-items: center; gap: 48px;
-    flex-wrap: wrap;
+    display: flex; align-items: stretch;
+    min-height: calc(100vh - 60px);
+    position: relative; z-index: 1;
   }
-  .hero-text { flex: 1; min-width: 280px; }
+  .hero-text {
+    flex: 1;
+    padding: clamp(100px,12vw,140px) clamp(24px,6vw,80px) 80px clamp(24px,8vw,100px);
+    display: flex; flex-direction: column; justify-content: center;
+    max-width: 620px;
+  }
   .hero-mascot {
-    flex: 0 0 300px;
-    display: flex; align-items: center; justify-content: center;
+    flex: 0 0 42%;
+    background: #F5DDD8;
+    display: flex; align-items: flex-end; justify-content: center;
+    overflow: hidden;
+    position: relative;
   }
   .mascot-img {
-    width: 300px; height: auto;
-    filter: brightness(0) sepia(1) saturate(6) hue-rotate(5deg)
-            drop-shadow(0 0 40px rgba(212,168,67,0.30));
-    animation: mascot-float 4s ease-in-out infinite;
+    width: 88%;
+    max-width: 680px;
+    height: auto;
+    mix-blend-mode: multiply;
+    display: block;
+    animation: mascot-float 5s ease-in-out infinite;
   }
   @keyframes mascot-float {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-14px); }
   }
   @media (prefers-reduced-motion: reduce) { .mascot-img { animation: none; } }
 
@@ -354,10 +363,10 @@
   @media (max-width: 680px) {
     nav { padding: 0 16px; }
     .nav-cta { font-size: 12px; padding: 8px 14px; }
-    .hero { padding: 90px 16px 60px; }
-    .hero-inner { flex-direction: column-reverse; text-align: center; }
-    .hero-mascot { flex: none; }
-    .mascot-img { width: 200px; }
+    .hero-inner { flex-direction: column; min-height: auto; }
+    .hero-text { padding: 100px 20px 40px; max-width: none; text-align: center; }
+    .hero-mascot { flex: 0 0 280px; width: 100%; }
+    .mascot-img { width: 70%; max-width: 260px; }
     .hero-actions { justify-content: center; }
     .hero-sub { max-width: 100%; }
     section { padding: 60px 16px; }
