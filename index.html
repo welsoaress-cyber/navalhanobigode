@@ -79,14 +79,17 @@
   }
   .hero-text { flex: 1; min-width: 280px; }
   .hero-mascot {
-    flex: 0 0 300px;
+    flex: 0 0 320px;
     display: flex; align-items: center; justify-content: center;
+    background: #F2EBD9;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.40), 0 0 0 1px rgba(212,168,67,0.25);
   }
   .mascot-img {
-    width: 300px; height: auto;
-    filter: brightness(0) invert(1) drop-shadow(0 8px 32px rgba(212,168,67,0.35));
+    width: 280px; height: auto;
+    mix-blend-mode: multiply;
     animation: mascot-float 4s ease-in-out infinite;
-    border-radius: 8px;
   }
   @keyframes mascot-float {
     0%, 100% { transform: translateY(0); }
