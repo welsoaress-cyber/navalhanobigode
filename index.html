@@ -141,60 +141,60 @@
   .app-preview { background: var(--navy); }
   .app-preview .inner { display: flex; align-items: center; gap: 64px; flex-wrap: wrap; }
   .app-preview .text-col { flex: 1; min-width: 280px; }
-  .app-preview .phones-col { flex: 1; min-width: 300px; display: flex; gap: 16px; justify-content: center; align-items: flex-end; }
+  .app-preview .phones-col { flex: 1.2; min-width: 380px; display: flex; gap: 20px; justify-content: center; align-items: flex-end; }
 
   /* Phone frame */
   .phone {
-    width: 160px; flex-shrink: 0;
+    width: 210px; flex-shrink: 0;
     background: var(--navy);
-    border-radius: 28px;
-    border: 6px solid #1E293B;
+    border-radius: 32px;
+    border: 7px solid #1E293B;
     box-shadow: 0 24px 64px rgba(15,23,42,0.35), inset 0 0 0 1px rgba(255,255,255,0.06);
     position: relative; overflow: hidden;
     transition: transform 0.3s;
   }
   .phone:hover { transform: translateY(-6px); }
-  .phone.center { width: 180px; transform: translateY(-12px); box-shadow: 0 32px 80px rgba(15,23,42,0.45); z-index: 2; }
-  .phone.center:hover { transform: translateY(-20px); }
+  .phone.center { width: 240px; transform: translateY(-16px); box-shadow: 0 32px 80px rgba(15,23,42,0.45); z-index: 2; }
+  .phone.center:hover { transform: translateY(-24px); }
   .phone-notch {
     position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 60px; height: 10px; background: #1E293B; border-radius: 0 0 8px 8px;
+    width: 72px; height: 12px; background: #1E293B; border-radius: 0 0 10px 10px;
     z-index: 10;
   }
-  .phone-screen { padding: 16px 10px 12px; display: flex; flex-direction: column; gap: 6px; min-height: 290px; }
-  .phone-screen.center-screen { min-height: 320px; }
+  .phone-screen { padding: 20px 14px 16px; display: flex; flex-direction: column; gap: 8px; min-height: 370px; }
+  .phone-screen.center-screen { min-height: 410px; }
 
   /* Screen: HOME */
-  .ps-bar { height: 6px; width: 60%; background: var(--gold); border-radius: 3px; margin-bottom: 6px; }
-  .ps-title { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: #fff; }
-  .ps-sub { font-size: 7px; color: rgba(255,255,255,0.45); }
-  .ps-search { background: rgba(255,255,255,0.08); border-radius: 6px; padding: 5px 8px; font-size: 7px; color: rgba(255,255,255,0.35); margin: 6px 0; display: flex; align-items: center; gap: 4px; }
-  .ps-section-label { font-size: 7px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin: 4px 0 4px; }
-  .ps-service { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 7px 8px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-  .ps-service-name { font-size: 8px; font-weight: 600; color: #fff; }
-  .ps-service-price { font-size: 8px; color: var(--gold); font-weight: 700; }
-  .ps-service-time { font-size: 6.5px; color: rgba(255,255,255,0.35); }
+  .ps-bar { height: 6px; width: 60%; background: var(--gold); border-radius: 3px; margin-bottom: 8px; }
+  .ps-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: #fff; }
+  .ps-sub { font-size: 9px; color: rgba(255,255,255,0.45); }
+  .ps-search { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 6px 10px; font-size: 9px; color: rgba(255,255,255,0.35); margin: 8px 0; display: flex; align-items: center; gap: 4px; }
+  .ps-section-label { font-size: 9px; font-weight: 600; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; margin: 6px 0 5px; }
+  .ps-service { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 9px 10px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; }
+  .ps-service-name { font-size: 10px; font-weight: 600; color: #fff; }
+  .ps-service-price { font-size: 10px; color: var(--gold); font-weight: 700; }
+  .ps-service-time { font-size: 8px; color: rgba(255,255,255,0.35); }
   .ps-service.selected { background: rgba(212,168,67,0.15); border: 1px solid rgba(212,168,67,0.30); }
-  .ps-chip { display: inline-flex; align-items: center; gap: 3px; background: var(--gold); color: var(--navy); font-size: 7px; font-weight: 700; padding: 3px 7px; border-radius: 100px; margin-bottom: 6px; }
-  .ps-btn { background: var(--gold); color: var(--navy); font-size: 8px; font-weight: 700; text-align: center; padding: 7px; border-radius: 7px; margin-top: auto; }
-  .ps-day-row { display: flex; gap: 4px; margin: 4px 0; }
-  .ps-day { flex: 1; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 5px 3px; text-align: center; }
+  .ps-chip { display: inline-flex; align-items: center; gap: 3px; background: var(--gold); color: var(--navy); font-size: 9px; font-weight: 700; padding: 4px 9px; border-radius: 100px; margin-bottom: 8px; }
+  .ps-btn { background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 700; text-align: center; padding: 9px; border-radius: 9px; margin-top: auto; }
+  .ps-day-row { display: flex; gap: 5px; margin: 6px 0; }
+  .ps-day { flex: 1; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 6px 3px; text-align: center; }
   .ps-day.active { background: var(--gold); }
-  .ps-day .d-num { font-size: 8px; font-weight: 700; color: #fff; }
+  .ps-day .d-num { font-size: 11px; font-weight: 700; color: #fff; }
   .ps-day.active .d-num { color: var(--navy); }
-  .ps-day .d-name { font-size: 6px; color: rgba(255,255,255,0.35); }
+  .ps-day .d-name { font-size: 8px; color: rgba(255,255,255,0.35); }
   .ps-day.active .d-name { color: rgba(15,23,42,0.6); }
-  .ps-slot-row { display: flex; gap: 4px; flex-wrap: wrap; }
-  .ps-slot { background: rgba(255,255,255,0.06); border-radius: 5px; padding: 4px 6px; font-size: 7px; color: rgba(255,255,255,0.5); font-weight: 500; }
+  .ps-slot-row { display: flex; gap: 5px; flex-wrap: wrap; }
+  .ps-slot { background: rgba(255,255,255,0.06); border-radius: 6px; padding: 5px 8px; font-size: 9px; color: rgba(255,255,255,0.5); font-weight: 500; }
   .ps-slot.available { color: #fff; border: 1px solid rgba(212,168,67,0.25); }
   .ps-slot.sel { background: var(--gold); color: var(--navy); border-color: transparent; }
-  .ps-success-icon { width: 32px; height: 32px; background: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 12px auto 8px; }
-  .ps-success-title { font-family: var(--font-display); font-size: 11px; color: #fff; text-align: center; font-weight: 700; }
-  .ps-success-sub { font-size: 7px; color: rgba(255,255,255,0.45); text-align: center; margin-top: 3px; }
-  .ps-confirm-card { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 8px; margin-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .ps-success-icon { width: 40px; height: 40px; background: #10B981; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 16px auto 10px; }
+  .ps-success-title { font-family: var(--font-display); font-size: 14px; color: #fff; text-align: center; font-weight: 700; }
+  .ps-success-sub { font-size: 9px; color: rgba(255,255,255,0.45); text-align: center; margin-top: 4px; }
+  .ps-confirm-card { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 10px; margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
   .ps-confirm-row { display: flex; justify-content: space-between; }
-  .ps-confirm-label { font-size: 6.5px; color: rgba(255,255,255,0.35); }
-  .ps-confirm-val { font-size: 7px; color: #fff; font-weight: 600; }
+  .ps-confirm-label { font-size: 8px; color: rgba(255,255,255,0.35); }
+  .ps-confirm-val { font-size: 9px; color: #fff; font-weight: 600; }
 
   .screen-label {
     text-align: center; margin-top: 12px;
