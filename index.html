@@ -378,6 +378,14 @@
     .phone { flex-shrink: 0; width: 140px; }
     .phone.center { width: 155px; transform: translateY(0); }
     footer { justify-content: center; text-align: center; }
+    /* Pricing: cards empilham no mobile */
+    .pricing-grid { grid-template-columns: 1fr; max-width: 380px; }
+    .plan.featured { order: -1; } /* kit em cima no mobile */
+    .plan-badge { font-size: 9px; }
+    .plan-amount { font-size: 44px; }
+    .pricing-header { margin-bottom: 32px; }
+    /* CTA final */
+    .final-cta { padding: 72px 20px; }
   }
 
   /* ── DARK SECTION OVERRIDES ── */
