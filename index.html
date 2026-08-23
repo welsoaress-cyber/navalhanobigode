@@ -140,9 +140,9 @@
 
   /* ── APP PREVIEW ── */
   .app-preview { background: var(--navy); }
-  .app-preview .inner { display: flex; align-items: center; gap: 64px; flex-wrap: wrap; }
-  .app-preview .text-col { flex: 1; min-width: 280px; }
-  .app-preview .phones-col { flex: 1.4; min-width: 500px; display: flex; gap: 24px; justify-content: center; align-items: flex-end; }
+  .app-preview .inner { display: flex; flex-direction: column; align-items: center; gap: 56px; }
+  .app-preview .text-col { text-align: center; max-width: 760px; width: 100%; }
+  .app-preview .phones-col { width: 100%; display: flex; gap: 24px; justify-content: center; align-items: flex-end; }
 
   /* Phone frame */
   .phone {
@@ -375,7 +375,8 @@
     .hero-mascot { order: 2; flex: 0 0 auto; height: 240px; align-items: flex-end; }
     .mascot-img { width: 60%; max-width: 220px; }
     section { padding: 60px 16px; }
-    .app-preview .inner, .card-preview .inner { flex-direction: column; gap: 40px; }
+    .app-preview .inner { gap: 36px; }
+    .card-preview .inner { flex-direction: column; gap: 40px; }
     /* Phones no mobile: scroll horizontal em vez de quebrar */
     .phones-col {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
@@ -401,8 +402,9 @@
   /* App Preview → ESCURO */
   .app-preview .section-eyebrow { color: var(--gold); }
   .app-preview .section-title { color: #fff; }
-  .app-preview .section-sub { color: rgba(255,255,255,0.55); }
-  .app-preview .feature-list li { color: rgba(255,255,255,0.65); }
+  .app-preview .section-sub { color: rgba(255,255,255,0.55); max-width: 560px; margin-left: auto; margin-right: auto; }
+  .app-preview .feature-list { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 20px; }
+  .app-preview .feature-list li { color: rgba(255,255,255,0.65); font-size: 14px; }
   .app-preview .phone {
     background: #182338;
     border-color: rgba(255,255,255,0.10);
@@ -615,7 +617,7 @@
               <path d="M6 3c0 0 1 2 4 2s4-2 4-2"/><path d="M6 3L4 17M18 3l2 14"/>
               <path d="M4 17c0 0 3 3 8 3s8-3 8-3"/><line x1="9" y1="11" x2="15" y2="11"/>
             </svg>
-            <span>Navalha no Bigode</span>
+            <span>Barbearia do Bruno</span>
           </div>
           <div class="bc-name">
             <h2>Barbearia<br>do Bruno</h2>
@@ -662,7 +664,7 @@
             </div>
             <div class="bc-qr-cap">Agendar agora</div>
           </div>
-          <div class="bc-url">navalhanobigode.com.br/<span>barberiadobruno</span></div>
+          <div class="bc-url"><span>bruno</span>.navalhanobigode.com.br</div>
         </div>
         <div class="card-badge">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -730,7 +732,7 @@
           <li><span class="check check-yes"></span>Configuração feita por nós</li>
           <li class="dimmed"><span class="check check-no"></span>Cartão de visita com QR Code*</li>
         </ul>
-        <a class="btn-plan btn-plan-outline" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Quero%20o%20Plano%20Solo%20do%20Navalha%20no%20Bigode." target="_blank" rel="noopener">Começar sozinho</a>
+        <a class="btn-plan btn-plan-outline" href="/cadastro/?plano=solo">Criar minha barbearia</a>
       </div>
 
       <!-- Equipe — Mais Escolhido -->
@@ -753,7 +755,7 @@
           <li><span class="check check-yes"></span>Configuração feita por nós</li>
           <li><span class="check check-gold"></span>100 cartões de visita com QR Code*</li>
         </ul>
-        <a class="btn-plan btn-plan-gold" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Quero%20o%20Plano%20Equipe%20do%20Navalha%20no%20Bigode." target="_blank" rel="noopener">Montar minha equipe</a>
+        <a class="btn-plan btn-plan-gold" href="/cadastro/?plano=equipe">Criar minha barbearia</a>
       </div>
 
       <!-- Black -->
@@ -776,7 +778,7 @@
           <li><span class="check check-gold"></span>100 cartões por barbeiro com QR Code*</li>
         </ul>
         <p class="plan-anchor">5 barbeiros × agenda cheia = investimento que se paga no 1º dia</p>
-        <a class="btn-plan btn-plan-black" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Quero%20o%20Plano%20Black%20do%20Navalha%20no%20Bigode." target="_blank" rel="noopener">Escalar minha barbearia</a>
+        <a class="btn-plan btn-plan-black" href="/cadastro/?plano=black">Criar minha barbearia</a>
       </div>
 
     </div>
