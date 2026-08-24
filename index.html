@@ -381,14 +381,19 @@
     section { padding: 60px 16px; }
     .app-preview .inner { gap: 36px; }
     .card-preview .inner { flex-direction: column; gap: 40px; }
-    /* Phones no mobile: scroll horizontal em vez de quebrar */
+    /* Phones no mobile: carrossel deslizável, um telefone por vez */
     .phones-col {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
       flex-wrap: nowrap; justify-content: flex-start;
-      padding: 8px 4px 16px; gap: 12px; width: 100%;
+      padding: 8px 10vw 20px; gap: 18px; width: 100%;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      align-items: stretch;
     }
-    .phone { flex-shrink: 0; width: 140px; }
-    .phone.center { width: 155px; transform: translateY(0); }
+    .phones-col::-webkit-scrollbar { display: none; }
+    .phones-col > div { flex-shrink: 0; scroll-snap-align: center; }
+    .phone, .phone.center { flex-shrink: 0; width: min(72vw, 290px); transform: translateY(0); }
+    .swipe-hint { display: block !important; }
     footer { justify-content: center; text-align: center; }
     /* Pricing: cards empilham no mobile */
     .pricing-grid { grid-template-columns: 1fr; max-width: 380px; }
@@ -521,6 +526,7 @@
           <li>Bloqueio por falta de pagamento automático</li>
         </ul>
       </div>
+      <div class="swipe-hint" style="display:none;text-align:center;font-size:13px;color:#94A3B8;margin:-16px 0 4px;">👉 Deslize para o lado para ver as telas</div>
       <div class="phones-col">
         <!-- Phone 1: Serviços -->
         <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
