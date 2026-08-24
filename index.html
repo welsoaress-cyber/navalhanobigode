@@ -382,7 +382,7 @@
     .app-preview .inner { gap: 36px; }
     .card-preview .inner { flex-direction: column; gap: 40px; }
     /* Phones no mobile: carrossel deslizável, um telefone por vez */
-    .phones-col {
+    .app-preview .phones-col {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
       flex-wrap: nowrap; justify-content: flex-start;
       padding: 8px calc(50vw - min(36vw, 145px)) 20px;
@@ -391,8 +391,8 @@
       scrollbar-width: none;
       align-items: stretch;
     }
-    .phones-col::-webkit-scrollbar { display: none; }
-    .phones-col > div { flex-shrink: 0; scroll-snap-align: center; }
+    .app-preview .phones-col::-webkit-scrollbar { display: none; }
+    .app-preview .phones-col > div { flex-shrink: 0; scroll-snap-align: center; }
     .phone, .phone.center { flex-shrink: 0; width: min(72vw, 290px); transform: translateY(0); }
     .swipe-hint { display: block !important; }
     /* Seta piscando indicando que dá pra deslizar */
