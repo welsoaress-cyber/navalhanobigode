@@ -239,8 +239,12 @@
   .bc-mascot { display: block; width: 48px; }
   .bc-mascot img { width: 100%; height: auto; display: block; filter: invert(1) brightness(1.4); opacity: 0.95; }
   .bc-name { }
-  .bc-name { position: absolute; top: 54%; left: 16px; right: 16px; transform: translateY(-40%); text-align: center; }
-  .bc-name h2 { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: #fff; line-height: 1.15; }
+  .bc-name { position: absolute; top: 54%; left: 16px; right: 16px; transform: translateY(-42%); text-align: center; }
+  .bc-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); opacity: 0.9; margin-bottom: 4px; }
+  .bc-orna { display: flex; align-items: center; gap: 10px; margin: 6px auto 2px; max-width: 170px; color: var(--gold); font-size: 8px; }
+  .bc-orna::before, .bc-orna::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .bc-orna::after { background: linear-gradient(90deg, var(--gold), transparent); }
+  .bc-name h2 { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: 0.04em; }
   .bc-name .tag { margin-top: 7px; font-size: 12px; font-weight: 500; font-style: italic; letter-spacing: 0.03em; color: var(--gold); opacity: 0.9; font-family: var(--font-display); }
   .bc-qr { position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
   .bc-back { margin-top: 6px; }
@@ -646,7 +650,9 @@
           <div class="bc-bar"></div>
           <div class="bc-logo"><span class="bc-mascot"></span></div>
           <div class="bc-name">
-            <h2>Barbearia do Estevão</h2>
+            <div class="bc-eyebrow">— Barbearia —</div>
+            <h2>Estevão</h2>
+            <div class="bc-orna"><span>◆</span></div>
             <div class="tag">Agende seu horário</div>
           </div>
         </div>
