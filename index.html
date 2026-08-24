@@ -385,7 +385,8 @@
     .phones-col {
       overflow-x: auto; -webkit-overflow-scrolling: touch;
       flex-wrap: nowrap; justify-content: flex-start;
-      padding: 8px 10vw 20px; gap: 18px; width: 100%;
+      padding: 8px calc(50vw - min(36vw, 145px)) 20px;
+      gap: 18px; width: 100%;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
       align-items: stretch;
@@ -394,6 +395,22 @@
     .phones-col > div { flex-shrink: 0; scroll-snap-align: center; }
     .phone, .phone.center { flex-shrink: 0; width: min(72vw, 290px); transform: translateY(0); }
     .swipe-hint { display: block !important; }
+    /* Seta piscando indicando que dá pra deslizar */
+    .phones-col::after {
+      content: '›';
+      position: sticky; right: 6px; align-self: center;
+      flex-shrink: 0;
+      font-size: 54px; font-weight: 700; color: var(--gold, #D4A843);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      animation: swipe-blink 1.1s ease-in-out infinite;
+      pointer-events: none;
+      margin-left: -20px;
+    }
+    .phones-col.scrolled::after { display: none; }
+    @keyframes swipe-blink {
+      0%, 100% { opacity: 0.25; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(6px); }
+    }
     footer { justify-content: center; text-align: center; }
     /* Pricing: cards empilham no mobile */
     .pricing-grid { grid-template-columns: 1fr; max-width: 380px; }
@@ -817,3 +834,11 @@
   </a>
   <span class="footer-copy">© 2025 Navalha no Bigode · Agendamento Online para Barbearias</span>
 </footer>
+
+<script>
+// Some a seta de deslizar depois que a pessoa arrasta o carrossel
+(function () {
+  var pc = document.querySelector('.phones-col')
+  if (pc) pc.addEventListener('scroll', function () { pc.classList.add('scrolled') }, { once: true, passive: true })
+})()
+</script>
