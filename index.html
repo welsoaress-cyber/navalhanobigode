@@ -235,13 +235,17 @@
     pointer-events: none;
   }
   .bc-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%); }
-  .bc-logo { position: absolute; top: 18px; left: 20px; display: flex; align-items: center; gap: 6px; }
+  .bc-logo { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; }
   .bc-logo svg { color: var(--gold); }
-  .bc-logo span { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--gold); }
-  .bc-name { position: absolute; top: 50%; left: 20px; transform: translateY(-58%); }
-  .bc-name h2 { font-family: var(--font-display); font-size: 19px; font-weight: 700; color: #fff; line-height: 1.15; max-width: 160px; }
-  .bc-name .tag { margin-top: 5px; font-size: 9px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gold); opacity: 0.85; }
+  .bc-name { position: absolute; top: 50%; left: 16px; right: 16px; transform: translateY(-42%); text-align: center; }
+  .bc-name h2 { font-family: var(--font-display); font-size: 21px; font-weight: 700; color: #fff; line-height: 1.15; }
+  .bc-name .tag { margin-top: 7px; font-size: 12px; font-weight: 500; font-style: italic; letter-spacing: 0.03em; color: var(--gold); opacity: 0.9; font-family: var(--font-display); }
   .bc-qr { position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+  .bc-back { margin-top: 16px; }
+  .bc-back .bc-qr { top: 50%; left: 50%; right: auto; bottom: auto; transform: translate(-50%, -50%); gap: 8px; }
+  .bc-back .bc-qr-box { width: 84px; height: 84px; }
+  .bc-back .bc-qr-box svg { width: 68px; height: 68px; }
+  .bc-back .bc-qr-cap { font-size: 8px; color: rgba(255,255,255,0.55); }
   .bc-qr-box { width: 62px; height: 62px; background: #fff; border-radius: 6px; padding: 4px; display: flex; align-items: center; justify-content: center; }
   .bc-qr-cap { font-size: 7px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.40); }
   .bc-url { position: absolute; bottom: 20px; left: 20px; font-size: 9px; color: rgba(255,255,255,0.38); font-weight: 500; }
@@ -644,9 +648,12 @@
             
           </div>
           <div class="bc-name">
-            <h2>Barbearia<br>do Estevão</h2>
-            <div class="tag">Agende seu horário online</div>
+            <h2>Barbearia do Estevão</h2>
+            <div class="tag">Agende seu horário</div>
           </div>
+        </div>
+        <div class="biz-card bc-back">
+          <div class="bc-bar"></div>
           <div class="bc-qr">
             <div class="bc-qr-box">
               <svg viewBox="0 0 21 21" width="54" height="54" xmlns="http://www.w3.org/2000/svg">
@@ -686,7 +693,7 @@
                 <rect x="13" y="20" width="2" height="1" fill="#0F172A"/><rect x="17" y="20" width="1" height="1" fill="#0F172A"/><rect x="19" y="20" width="1" height="1" fill="#0F172A"/>
               </svg>
             </div>
-            <div class="bc-qr-cap">Agendar agora</div>
+            <div class="bc-qr-cap">Aponte a câmera e agende</div>
           </div>
         </div>
         <div class="card-badge">
