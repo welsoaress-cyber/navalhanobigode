@@ -396,20 +396,20 @@
     .phone, .phone.center { flex-shrink: 0; width: min(72vw, 290px); transform: translateY(0); }
     .swipe-hint { display: block !important; }
     /* Seta piscando indicando que dá pra deslizar */
-    .phones-col::after {
-      content: '›';
-      position: sticky; right: 6px; align-self: center;
-      flex-shrink: 0;
-      font-size: 54px; font-weight: 700; color: var(--gold, #D4A843);
-      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    .phones-wrap { position: relative; width: 100%; }
+    .swipe-arrow {
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%);
+      font-size: 64px; font-weight: 700; line-height: 1;
+      color: var(--gold, #D4A843);
+      text-shadow: 0 2px 14px rgba(0,0,0,0.8);
       animation: swipe-blink 1.1s ease-in-out infinite;
-      pointer-events: none;
-      margin-left: -20px;
+      pointer-events: none; z-index: 5;
+      padding: 0 6px;
     }
-    .phones-col.scrolled::after { display: none; }
     @keyframes swipe-blink {
-      0%, 100% { opacity: 0.25; transform: translateX(0); }
-      50% { opacity: 1; transform: translateX(6px); }
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
     }
     footer { justify-content: center; text-align: center; }
     /* Pricing: cards empilham no mobile */
@@ -836,9 +836,32 @@
 </footer>
 
 <script>
-// Some a seta de deslizar depois que a pessoa arrasta o carrossel
+// Carrossel dos telefones no celular: começa na primeira tela e mostra seta piscando
 (function () {
   var pc = document.querySelector('.phones-col')
-  if (pc) pc.addEventListener('scroll', function () { pc.classList.add('scrolled') }, { once: true, passive: true })
+  if (!pc || !window.matchMedia('(max-width: 680px)').matches) return
+
+  // Envelopa o carrossel para posicionar a seta por cima
+  var wrap = document.createElement('div')
+  wrap.className = 'phones-wrap'
+  pc.parentNode.insertBefore(wrap, pc)
+  wrap.appendChild(pc)
+
+  var arrow = document.createElement('div')
+  arrow.className = 'swipe-arrow'
+  arrow.textContent = '›'
+  wrap.appendChild(arrow)
+
+  // Garante que começa no primeiro telefone
+  function goStart() { pc.scrollTo({ left: 0 }) }
+  goStart()
+  setTimeout(goStart, 60)
+  window.addEventListener('load', goStart)
+
+  // Seta some depois que a pessoa desliza
+  var hidden = false
+  pc.addEventListener('scroll', function () {
+    if (!hidden && pc.scrollLeft > 30) { hidden = true; arrow.style.display = 'none' }
+  }, { passive: true })
 })()
 </script>
