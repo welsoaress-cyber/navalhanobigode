@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Navalha no Bigode — App de Agendamento para Barbearias</title>
-<meta name="description" content="App de agendamento online para barbearias: seus clientes marcam sozinhos pelo link da sua barbearia, com confirmação e lembrete automáticos no WhatsApp. Pronto no mesmo dia, a partir de R$ 99/mês.">
+<meta name="description" content="App de agendamento para barbearias com robô de WhatsApp incluso: confirma, lembra, recupera horários cancelados e presta contas toda semana. Pronto no mesmo dia, a partir de R$ 99/mês.">
 <link rel="canonical" href="https://navalhanobigode.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Navalha no Bigode">
 <meta property="og:title" content="Navalha no Bigode — App de Agendamento para Barbearias">
-<meta property="og:description" content="Seus clientes agendam sozinhos e o WhatsApp confirma e lembra automaticamente. Sua barbearia com app próprio, pronto no mesmo dia.">
+<meta property="og:description" content="Seus clientes agendam sozinhos e um robô no WhatsApp confirma, lembra e recupera horários por você. Pronto no mesmo dia.">
 <meta property="og:url" content="https://navalhanobigode.com.br/">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Navalha no Bigode — App de Agendamento para Barbearias">
-<meta name="twitter:description" content="Seus clientes agendam sozinhos e o WhatsApp confirma e lembra automaticamente. Pronto no mesmo dia, a partir de R$ 99/mês.">
+<meta name="twitter:description" content="Seus clientes agendam sozinhos e um robô no WhatsApp confirma, lembra e recupera horários por você. A partir de R$ 99/mês.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -314,6 +314,29 @@
   .problem-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
   .problem-card p { font-size: 13px; color: var(--ink-2); line-height: 1.55; }
 
+  /* ── ROBOT (diferencial) ── */
+  .robot { background: var(--bg); }
+  .robot-inner { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .robot-jobs { display: grid; gap: 14px; margin-top: 36px; }
+  .robot-job { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start; }
+  .robot-job .rj-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .robot-job h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .robot-job p { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+  .robot-note { margin-top: 20px; font-size: 13.5px; font-weight: 600; color: var(--gold-ink); }
+  /* mock de conversa: retrato de um celular, cores fixas de propósito (é uma "foto" do WhatsApp) */
+  .robot-phone { background: #E5DDD3; border: 1px solid var(--border); border-radius: 22px; padding: 16px 14px 18px; max-width: 350px; margin: 0 auto; box-shadow: var(--shadow-lg); }
+  .robot-phone .rp-head { display: flex; align-items: center; gap: 10px; padding: 0 4px 12px; border-bottom: 1px solid rgba(0,0,0,0.08); margin-bottom: 12px; }
+  .robot-phone .rp-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .robot-phone .rp-name { font-size: 13.5px; font-weight: 700; color: #111; }
+  .robot-phone .rp-status { font-size: 11px; color: #4A5568; }
+  .robot-msg { background: #FFFFFF; color: #1A202C; border-radius: 10px; border-top-left-radius: 2px; padding: 9px 12px; font-size: 12.5px; line-height: 1.5; max-width: 92%; margin-bottom: 10px; box-shadow: 0 1px 1px rgba(0,0,0,0.08); }
+  .robot-msg b { font-weight: 700; }
+  .robot-msg .rm-time { display: block; text-align: right; font-size: 10px; color: #718096; margin-top: 3px; }
+  @media (max-width: 860px) {
+    .robot-inner { grid-template-columns: 1fr; gap: 36px; }
+    .robot-phone { max-width: 320px; }
+  }
+
   /* ── PRICING ── */
   .pricing { background: var(--surface-2); }
   .pricing .section-title { color: #fff; }
@@ -592,7 +615,7 @@
     <div class="hero-text">
       <div class="hero-eyebrow"><span></span> App de Agendamento para Barbearias</div>
       <h1>Sua barbearia<br>sempre <em>lotada</em></h1>
-      <p class="hero-sub">Clientes agendam pelo celular, 24h por dia — sem ligação, sem confusão. Você foca no corte.</p>
+      <p class="hero-sub">Clientes agendam sozinhos pelo celular, 24h por dia — e um robô no WhatsApp confirma, lembra e recupera horários por você. Você foca no corte.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="https://cadastro.navalhanobigode.com.br/">Escolha seu plano →</a>
         <a class="btn-secondary" href="#app-preview">Ver o app →</a>
@@ -807,6 +830,36 @@
       <div class="problem-card"><div class="pc-icon" aria-hidden="true">🤯</div><div><h3>Agenda no papel</h3><p>Rasura, horário duplicado, cliente aparece na hora errada. Constrangimento na frente de todos.</p></div></div>
       <div class="problem-card"><div class="pc-icon" aria-hidden="true">😤</div><div><h3>Furo no horário</h3><p>Sem confirmação automática, o cliente esquece — e você perde a hora sem aviso.</p></div></div>
       <div class="problem-card"><div class="pc-icon" aria-hidden="true">🌙</div><div><h3>Fora do horário</h3><p>Clientes querem agendar às 23h. A barbearia está fechada. A oportunidade, perdida.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROBOT (diferencial) -->
+<section class="robot" id="robo">
+  <div class="container">
+    <div class="robot-inner">
+      <div>
+        <div class="section-eyebrow">O diferencial</div>
+        <h2 class="section-title">Você não assina um app.<br>Contrata um <em>funcionário</em>.</h2>
+        <p class="section-sub">Todo plano vem com um robô no WhatsApp que trabalha 24h pela sua barbearia — sem salário, sem folga e sem custo por mensagem.</p>
+        <div class="robot-jobs">
+          <div class="robot-job"><div class="rj-icon" aria-hidden="true">✅</div><div><h3>Confirma e lembra</h3><p>Cada agendamento é confirmado na hora, e o cliente recebe lembrete antes do corte. Furo de horário despenca.</p></div></div>
+          <div class="robot-job"><div class="rj-icon" aria-hidden="true">⚡</div><div><h3>Recupera horário cancelado</h3><p>Cliente desmarcou? O robô oferece a vaga pra outros clientes na hora. A cadeira não fica fria.</p></div></div>
+          <div class="robot-job"><div class="rj-icon" aria-hidden="true">🤝</div><div><h3>Agradece e chama de volta</h3><p>Terminou o corte, o cliente recebe um obrigado — com o link pra agendar o próximo.</p></div></div>
+          <div class="robot-job"><div class="rj-icon" aria-hidden="true">📊</div><div><h3>Presta contas toda segunda</h3><p>Relatório no seu WhatsApp: agendamentos, cancelamentos, horários recuperados, ganho da semana e os cortes mais pedidos.</p></div></div>
+        </div>
+        <p class="robot-note">Nenhum outro sistema de barbearia entrega isso incluso no plano.</p>
+      </div>
+      <div class="robot-phone" role="img" aria-label="Exemplo de mensagens que o robô envia no WhatsApp">
+        <div class="rp-head">
+          <div class="rp-avatar" aria-hidden="true">💈</div>
+          <div><div class="rp-name">Barbearia do Léo</div><div class="rp-status">online</div></div>
+        </div>
+        <div class="robot-msg">💈 Fala, Lucas! Lembrete do seu horário <b>amanhã às 15h</b> — corte + barba ✂️<span class="rm-time">09:00</span></div>
+        <div class="robot-msg">⚡ <b>Vagou um horário hoje às 17h!</b> Quer aproveitar? É só tocar no link e confirmar.<span class="rm-time">14:12</span></div>
+        <div class="robot-msg">🤝 Obrigado pela visita, Lucas! Ficou no capricho ✂️✨ Quando precisar, é só agendar de novo.<span class="rm-time">17:48</span></div>
+        <div class="robot-msg">📊 <b>Resumo da semana:</b> 23 agendamentos (+15%) · 2 horários recuperados · 🏆 corte mais pedido: degradê<span class="rm-time">seg 09:00</span></div>
+      </div>
     </div>
   </div>
 </section>
