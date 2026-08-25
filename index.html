@@ -431,6 +431,8 @@
     box-shadow: 0 -6px 24px rgba(0,0,0,0.25);
   }
   #promoBar:hover { background: var(--gold-light); }
+  #promoBar.teaser { background: #0F172A; color: var(--gold); border-top: 1px solid var(--gold); cursor: default; }
+  #promoBar.teaser:hover { background: #0F172A; }
 
   /* Acessibilidade */
   a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
@@ -992,15 +994,31 @@
 </script>
 <script>
 // ── Faixa automática das datas duplas (1/1, 2/2, … 12/12) ──
+// No dia: faixa dourada de compra. Nos 3 dias antes: contagem regressiva.
 (function () {
   var agora = new Date(Date.now() - 3 * 3600 * 1000) // horário de Brasília
-  var dia = agora.getUTCDate(), mes = agora.getUTCMonth() + 1
-  if (dia !== mes) return
-  var bar = document.createElement('a')
-  bar.id = 'promoBar'
-  bar.href = 'https://cadastro.navalhanobigode.com.br/'
-  bar.textContent = '🔥 Só hoje, ' + dia + '/' + mes + ': Kit de Instalação pela METADE em todos os planos — válido até meia-noite'
-  document.body.appendChild(bar)
+  var ano = agora.getUTCFullYear(), mes = agora.getUTCMonth() + 1, dia = agora.getUTCDate()
+
+  if (dia === mes) {
+    var bar = document.createElement('a')
+    bar.id = 'promoBar'
+    bar.href = 'https://cadastro.navalhanobigode.com.br/'
+    bar.textContent = '🔥 Só hoje, ' + dia + '/' + mes + ': Kit de Instalação pela METADE em todos os planos — válido até meia-noite'
+    document.body.appendChild(bar)
+    return
+  }
+
+  // Próxima data dupla: deste mês (se ainda não passou) ou do mês seguinte
+  var alvoMes = dia < mes ? mes : (mes === 12 ? 1 : mes + 1)
+  var alvoAno = dia < mes ? ano : (mes === 12 ? ano + 1 : ano)
+  var falta = Math.round((Date.UTC(alvoAno, alvoMes - 1, alvoMes) - Date.UTC(ano, mes - 1, dia)) / 86400000)
+  if (falta < 1 || falta > 3) return
+
+  var teaser = document.createElement('div')
+  teaser.id = 'promoBar'
+  teaser.className = 'teaser'
+  teaser.textContent = '⏳ Vem aí ' + alvoMes + '/' + alvoMes + ': Kit de Instalação pela METADE — ' + (falta === 1 ? 'é amanhã!' : 'faltam ' + falta + ' dias')
+  document.body.appendChild(teaser)
 })()
 </script>
 <script>
