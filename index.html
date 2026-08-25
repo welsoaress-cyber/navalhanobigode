@@ -422,6 +422,16 @@
   .faq details[open] summary::after { content: '–'; }
   .faq details p { padding: 0 20px 18px; font-size: 14px; color: var(--ink-2); line-height: 1.65; }
 
+  /* Faixa das datas duplas (aparece sozinha em 1/1, 2/2, … 12/12) */
+  #promoBar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    display: block; background: var(--gold); color: #0F172A;
+    font-weight: 700; font-size: 14px; text-align: center;
+    padding: 13px 18px; text-decoration: none;
+    box-shadow: 0 -6px 24px rgba(0,0,0,0.25);
+  }
+  #promoBar:hover { background: var(--gold-light); }
+
   /* Acessibilidade */
   a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
   @media (prefers-reduced-motion: reduce) {
@@ -978,6 +988,19 @@
   pc.addEventListener('scroll', function () {
     if (!hidden && pc.scrollLeft > 30) { hidden = true; arrow.style.display = 'none' }
   }, { passive: true })
+})()
+</script>
+<script>
+// ── Faixa automática das datas duplas (1/1, 2/2, … 12/12) ──
+(function () {
+  var agora = new Date(Date.now() - 3 * 3600 * 1000) // horário de Brasília
+  var dia = agora.getUTCDate(), mes = agora.getUTCMonth() + 1
+  if (dia !== mes) return
+  var bar = document.createElement('a')
+  bar.id = 'promoBar'
+  bar.href = 'https://cadastro.navalhanobigode.com.br/'
+  bar.textContent = '🔥 Só hoje, ' + dia + '/' + mes + ': Kit de Instalação pela METADE em todos os planos — válido até meia-noite'
+  document.body.appendChild(bar)
 })()
 </script>
 <script>
