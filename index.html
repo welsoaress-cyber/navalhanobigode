@@ -51,6 +51,7 @@
     --navy-3: #334155;
     --gold: #D4A843;
     --gold-light: #F0D080;
+    --gold-ink: #806013;     /* dourado legível para texto pequeno sobre fundo claro (WCAG AA) */
     --gold-muted: rgba(212,168,67,0.12);
     --bg: #F9F7F4;
     --surface: #FFFFFF;
@@ -70,12 +71,14 @@
     :root:not([data-theme="light"]) {
       --bg: #080D18; --surface: #0F172A; --surface-2: #1E293B;
       --border: #334155; --ink: #F1F5F9; --ink-2: #CBD5E1; --ink-3: #64748B;
+      --gold-ink: #D4A843;
       --shadow: 0 4px 24px rgba(0,0,0,0.40); --shadow-lg: 0 20px 60px rgba(0,0,0,0.50);
     }
   }
   :root[data-theme="dark"] {
     --bg: #080D18; --surface: #0F172A; --surface-2: #1E293B;
     --border: #334155; --ink: #F1F5F9; --ink-2: #CBD5E1; --ink-3: #64748B;
+    --gold-ink: #D4A843;
     --shadow: 0 4px 24px rgba(0,0,0,0.40); --shadow-lg: 0 20px 60px rgba(0,0,0,0.50);
   }
 
@@ -177,7 +180,7 @@
   /* ── SECTION ── */
   section { padding: 80px 24px; }
   .container { max-width: 1280px; margin: 0 auto; }
-  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 10px; }
   .section-title { font-family: var(--font-display); font-size: clamp(26px,4vw,40px); font-weight: 700; color: var(--ink); text-wrap: balance; line-height: 1.2; margin-bottom: 16px; }
   .section-sub { font-size: 16px; color: var(--ink-2); max-width: 560px; text-wrap: balance; line-height: 1.65; }
 
@@ -315,7 +318,7 @@
   .pricing { background: var(--surface-2); }
   .pricing .section-title { color: #fff; }
   .pricing .section-sub { color: rgba(255,255,255,0.50); max-width: 480px; }
-  .pricing .section-eyebrow { color: var(--gold); }
+  .pricing .section-eyebrow { color: var(--gold-ink); }
   .pricing-header { text-align: center; margin-bottom: 48px; }
 
   .pricing-grid {
@@ -356,7 +359,7 @@
 
   .plan-setup-note { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 20px; margin-top: 6px; min-height: 18px; }
   .plan.featured .plan-setup-note { color: var(--ink-3); font-weight: 500; }
-  .plan-setup-note strong { color: var(--gold); }
+  .plan-setup-note strong { color: var(--gold-ink); }
 
   .plan-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 0 0 20px; }
   .plan.featured .plan-divider { background: var(--border); }
@@ -410,12 +413,12 @@
   .faq { background: var(--bg); padding: 90px 24px; }
   .faq .faq-inner { max-width: 720px; margin: 0 auto; }
   .faq .faq-head { text-align: center; margin-bottom: 28px; }
-  .faq .section-eyebrow { color: var(--gold); }
+  .faq .section-eyebrow { color: var(--gold-ink); }
   .faq .section-title { color: var(--ink); }
   .faq details { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); margin-top: 12px; overflow: hidden; }
   .faq summary { list-style: none; cursor: pointer; padding: 18px 20px; font-weight: 600; font-size: 15px; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: '+'; color: var(--gold); font-size: 20px; font-weight: 700; flex-shrink: 0; line-height: 1; }
+  .faq summary::after { content: '+'; color: var(--gold-ink); font-size: 20px; font-weight: 700; flex-shrink: 0; line-height: 1; }
   .faq details[open] summary::after { content: '–'; }
   .faq details p { padding: 0 20px 18px; font-size: 14px; color: var(--ink-2); line-height: 1.65; }
 
@@ -522,7 +525,7 @@
   .plan-amount { color: var(--ink); }
   .plan-period { color: var(--ink-3); }
   .plan-setup-note { color: var(--ink-3); }
-  .plan-setup-note strong { color: var(--gold); }
+  .plan-setup-note strong { color: var(--gold-ink); }
   .plan-divider { background: var(--border); }
   .plan-features li { color: var(--ink-2); }
   .plan-features li.dimmed { opacity: 0.35; }
@@ -535,13 +538,14 @@
   .pricing .plan-black .plan-amount { color: #fff; }
   .pricing .plan-black .plan-period { color: rgba(255,255,255,0.35); }
   .pricing .plan-black .plan-setup-note { color: rgba(255,255,255,0.45); }
+  .pricing .plan-black .plan-setup-note strong { color: var(--gold); }
   .pricing .plan-black .plan-divider { background: rgba(255,255,255,0.10); }
   .pricing .plan-black .plan-features li { color: rgba(255,255,255,0.65); }
   .pricing .plan-black .plan-features li.dimmed { opacity: 0.35; }
   .pricing .plan-black .plan-anchor { color: rgba(255,255,255,0.40); }
   .pricing .plan-black .btn-plan-black { background: var(--gold); color: var(--navy); border-color: transparent; box-shadow: 0 4px 16px rgba(212,168,67,0.30); }
   .pricing .plan-black .btn-plan-black:hover { background: var(--gold-light); }
-  .pricing-note { color: var(--ink-3); }
+  .pricing-note { color: var(--ink-2); }
   .pricing-note a { color: var(--ink-2); }
 
   /* CTA Final → ESCURO */
@@ -550,7 +554,7 @@
   .final-cta p { color: rgba(255,255,255,0.55); }
 
   /* Footer → CLARO */
-  .footer-copy { color: var(--ink-3); }
+  .footer-copy { color: var(--ink-2); }
   footer { border-top: 1px solid var(--border); }
 
 </style>
@@ -793,10 +797,10 @@
     <h2 class="section-title">Quantos clientes você perde por dia?</h2>
     <p class="section-sub">Quando a barbearia depende só do WhatsApp e do telefone, os clientes desistem antes de agendar.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div class="pc-icon">📵</div><div><h3>Ligou, não atendeu</h3><p>Você estava atendendo, o cliente desistiu. Ele foi na concorrência.</p></div></div>
-      <div class="problem-card"><div class="pc-icon">🤯</div><div><h3>Agenda no papel</h3><p>Rasura, horário duplicado, cliente aparece na hora errada. Constrangimento na frente de todos.</p></div></div>
-      <div class="problem-card"><div class="pc-icon">😤</div><div><h3>Furo no horário</h3><p>Sem confirmação automática, o cliente esquece — e você perde a hora sem aviso.</p></div></div>
-      <div class="problem-card"><div class="pc-icon">🌙</div><div><h3>Fora do horário</h3><p>Clientes querem agendar às 23h. A barbearia está fechada. A oportunidade, perdida.</p></div></div>
+      <div class="problem-card"><div class="pc-icon" aria-hidden="true">📵</div><div><h3>Ligou, não atendeu</h3><p>Você estava atendendo, o cliente desistiu. Ele foi na concorrência.</p></div></div>
+      <div class="problem-card"><div class="pc-icon" aria-hidden="true">🤯</div><div><h3>Agenda no papel</h3><p>Rasura, horário duplicado, cliente aparece na hora errada. Constrangimento na frente de todos.</p></div></div>
+      <div class="problem-card"><div class="pc-icon" aria-hidden="true">😤</div><div><h3>Furo no horário</h3><p>Sem confirmação automática, o cliente esquece — e você perde a hora sem aviso.</p></div></div>
+      <div class="problem-card"><div class="pc-icon" aria-hidden="true">🌙</div><div><h3>Fora do horário</h3><p>Clientes querem agendar às 23h. A barbearia está fechada. A oportunidade, perdida.</p></div></div>
     </div>
   </div>
 </section>
