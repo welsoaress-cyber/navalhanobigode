@@ -2,8 +2,37 @@
 <html lang="pt-BR">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navalha no Bigode</title>
+<title>Navalha no Bigode — App de Agendamento para Barbearias</title>
+<meta name="description" content="App de agendamento online para barbearias: seus clientes marcam sozinhos pelo link da sua barbearia, com confirmação e lembrete automáticos no WhatsApp. Pronto no mesmo dia, a partir de R$ 99/mês.">
+<link rel="canonical" href="https://navalhanobigode.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Navalha no Bigode">
+<meta property="og:title" content="Navalha no Bigode — App de Agendamento para Barbearias">
+<meta property="og:description" content="Seus clientes agendam sozinhos e o WhatsApp confirma e lembra automaticamente. Sua barbearia com app próprio, pronto no mesmo dia.">
+<meta property="og:url" content="https://navalhanobigode.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Navalha no Bigode — App de Agendamento para Barbearias">
+<meta name="twitter:description" content="Seus clientes agendam sozinhos e o WhatsApp confirma e lembra automaticamente. Pronto no mesmo dia, a partir de R$ 99/mês.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Navalha no Bigode",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://navalhanobigode.com.br/",
+  "description": "App de agendamento online para barbearias, com confirmações e lembretes automáticos no WhatsApp.",
+  "offers": [
+    { "@type": "Offer", "name": "Plano Solo", "price": "99.00", "priceCurrency": "BRL" },
+    { "@type": "Offer", "name": "Plano Equipe", "price": "149.00", "priceCurrency": "BRL" },
+    { "@type": "Offer", "name": "Plano Black", "price": "299.00", "priceCurrency": "BRL" }
+  ]
+}
+</script>
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18408907250"></script>
 <script>
@@ -28,7 +57,7 @@
     --border: #E5E0D8;
     --ink: #0F172A;
     --ink-2: #475569;
-    --ink-3: #94A3B8;
+    --ink-3: #64748B;
     --pos: #10B981;
     --font-display: 'Playfair Display', Georgia, serif;
     --font-ui: 'Inter', system-ui, sans-serif;
@@ -251,7 +280,7 @@
   .bc-orna { display: flex; align-items: center; gap: 10px; margin: 6px auto 2px; max-width: 170px; color: var(--gold); font-size: 8px; }
   .bc-orna::before, .bc-orna::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
   .bc-orna::after { background: linear-gradient(90deg, var(--gold), transparent); }
-  .bc-name h2 { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: 0.04em; }
+  .bc-name .bc-title { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: 0.04em; }
   .bc-name .tag { margin-top: 7px; font-size: 12px; font-weight: 500; font-style: italic; letter-spacing: 0.03em; color: var(--gold); opacity: 0.9; font-family: var(--font-display); }
   .bc-qr { position: absolute; bottom: 16px; right: 16px; display: flex; flex-direction: column; align-items: center; gap: 5px; }
   .bc-back { margin-top: 6px; }
@@ -375,6 +404,25 @@
     box-shadow: 0 6px 24px rgba(37,211,102,0.30); transition: all 0.2s;
   }
   .whatsapp-btn:hover { background: #1FB855; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(37,211,102,0.40); }
+
+  /* ── FAQ ── */
+  .faq { background: var(--bg); padding: 90px 24px; }
+  .faq .faq-inner { max-width: 720px; margin: 0 auto; }
+  .faq .faq-head { text-align: center; margin-bottom: 28px; }
+  .faq .section-eyebrow { color: var(--gold); }
+  .faq .section-title { color: var(--ink); }
+  .faq details { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); margin-top: 12px; overflow: hidden; }
+  .faq summary { list-style: none; cursor: pointer; padding: 18px 20px; font-weight: 600; font-size: 15px; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; color: var(--gold); font-size: 20px; font-weight: 700; flex-shrink: 0; line-height: 1; }
+  .faq details[open] summary::after { content: '–'; }
+  .faq details p { padding: 0 20px 18px; font-size: 14px; color: var(--ink-2); line-height: 1.65; }
+
+  /* Acessibilidade */
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .swipe-arrow { animation: none; }
+  }
 
   /* ── FOOTER ── */
   footer {
@@ -515,7 +563,7 @@
     </svg>
     <span>Navalha no Bigode</span>
   </a>
-  <a class="nav-cta" href="https://wa.me/5511954490001?text=Olá!%20Vi%20sobre%20o%20Navalha no Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
+  <a class="nav-cta" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Vi%20sobre%20o%20Navalha%20no%20Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.103.546 4.08 1.503 5.805L0 24l6.335-1.482C8.05 23.456 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.51-5.168-1.402l-.37-.22-3.83.896.93-3.718-.242-.383C2.509 15.558 2 13.84 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     Falar agora
   </a>
@@ -529,7 +577,7 @@
       <h1>Sua barbearia<br>sempre <em>lotada</em></h1>
       <p class="hero-sub">Clientes agendam pelo celular, 24h por dia — sem ligação, sem confusão. Você foca no corte.</p>
       <div class="hero-actions">
-        <a class="btn-primary" href="https://wa.me/5511954490001?text=Olá!%20Vi%20sobre%20o%20Navalha no Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
+        <a class="btn-primary" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Vi%20sobre%20o%20Navalha%20no%20Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.103.546 4.08 1.503 5.805L0 24l6.335-1.482C8.05 23.456 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.51-5.168-1.402l-.37-.22-3.83.896.93-3.718-.242-.383C2.509 15.558 2 13.84 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Quero saber mais
         </a>
@@ -616,7 +664,7 @@
               <div class="ps-btn" style="background:var(--gold);color:var(--navy);">Confirmar agendamento</div>
             </div>
           </div>
-          <div class="screen-label" style="font-weight:700;color:var(--ink);">Horários</div>
+          <div class="screen-label" style="font-weight:700">Horários</div>
         </div>
 
         <!-- Phone 3: Sucesso -->
@@ -663,7 +711,7 @@
           </div>
           <div class="bc-name">
             <div class="bc-eyebrow">— Barbearia —</div>
-            <h2>Estevão</h2>
+            <p class="bc-title">Estevão</p>
             <div class="bc-orna"><span>◆</span></div>
             <div class="tag">Agende seu horário</div>
           </div>
@@ -779,7 +827,7 @@
           <li><span class="check check-yes"></span>Configuração feita por nós</li>
           <li class="dimmed"><span class="check check-no"></span>Cartão de visita com QR Code*</li>
         </ul>
-        <a class="btn-plan btn-plan-outline" href="https://navalha-app.welsoaress.workers.dev/cadastro/?plano=solo">Criar minha barbearia</a>
+        <a class="btn-plan btn-plan-outline" href="https://cadastro.navalhanobigode.com.br/?plano=solo">Criar minha barbearia</a>
       </div>
 
       <!-- Equipe — Mais Escolhido -->
@@ -802,7 +850,7 @@
           <li><span class="check check-yes"></span>Configuração feita por nós</li>
           <li><span class="check check-gold"></span>100 cartões de visita com QR Code*</li>
         </ul>
-        <a class="btn-plan btn-plan-gold" href="https://navalha-app.welsoaress.workers.dev/cadastro/?plano=equipe">Criar minha barbearia</a>
+        <a class="btn-plan btn-plan-gold" href="https://cadastro.navalhanobigode.com.br/?plano=equipe">Criar minha barbearia</a>
       </div>
 
       <!-- Black -->
@@ -825,7 +873,7 @@
           <li><span class="check check-gold"></span>100 cartões por barbeiro com QR Code*</li>
         </ul>
         <p class="plan-anchor">5 barbeiros × agenda cheia = investimento que se paga no 1º dia</p>
-        <a class="btn-plan btn-plan-black" href="https://navalha-app.welsoaress.workers.dev/cadastro/?plano=black">Criar minha barbearia</a>
+        <a class="btn-plan btn-plan-black" href="https://cadastro.navalhanobigode.com.br/?plano=black">Criar minha barbearia</a>
       </div>
 
     </div>
@@ -833,11 +881,49 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <div class="faq-head">
+      <div class="section-eyebrow">Dúvidas frequentes</div>
+      <h2 class="section-title">Perguntas que todo barbeiro faz</h2>
+    </div>
+    <details>
+      <summary>Preciso baixar algum aplicativo?</summary>
+      <p>Não. Sua barbearia ganha um link próprio (suabarbearia.navalhanobigode.com.br). O cliente abre no navegador, agenda em 30 segundos e ainda pode adicionar à tela inicial do celular — vira um ícone, como qualquer app.</p>
+    </details>
+    <details>
+      <summary>Quanto tempo leva para começar?</summary>
+      <p>O cadastro leva menos de 10 minutos: você escolhe o nome, os serviços e os horários, paga o Pix e o app já está no ar. No mesmo dia seus clientes podem agendar.</p>
+    </details>
+    <details>
+      <summary>E se o cliente esquecer o horário?</summary>
+      <p>O sistema confirma o agendamento na hora pelo WhatsApp e ainda envia um lembrete automático cerca de 2 horas antes do corte. Menos falta, mais cadeira cheia.</p>
+    </details>
+    <details>
+      <summary>E quando alguém desmarca em cima da hora?</summary>
+      <p>O horário vago é oferecido automaticamente, pelo WhatsApp, ao próximo cliente da sua agenda — se ele quiser antecipar, o sistema remarca tudo sozinho. Você não perde o horário nem precisa fazer nada.</p>
+    </details>
+    <details>
+      <summary>Tem fidelidade ou multa para cancelar?</summary>
+      <p>Não. A mensalidade é mês a mês, paga por Pix. Se quiser parar, é só não renovar — sem multa, sem burocracia.</p>
+    </details>
+    <details>
+      <summary>Como recebo os cartões com QR Code?</summary>
+      <p>Depois da confirmação do pagamento, a arte é criada com o nome da sua barbearia e a primeira remessa é impressa e enviada em até 15 dias úteis, por nossa conta. Enquanto isso, seu app já funciona normalmente.</p>
+    </details>
+    <details>
+      <summary>Funciona para barbearia com mais de um barbeiro?</summary>
+      <p>Sim. No plano Equipe (até 3 barbeiros) e no Black (até 5), cada barbeiro tem a própria agenda, os próprios horários e acesso individual ao painel.</p>
+    </details>
+  </div>
+</section>
+
 <!-- FINAL CTA -->
 <section class="final-cta">
   <h2>Pronto para ter sua agenda <em>cheia</em>?</h2>
   <p>Fale agora pelo WhatsApp. A gente configura tudo e entrega funcionando no mesmo dia.</p>
-  <a class="whatsapp-btn" href="https://wa.me/5511954490001?text=Olá!%20Vi%20sobre%20o%20Navalha no Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
+  <a class="whatsapp-btn" href="https://wa.me/5511954490001?text=Ol%C3%A1!%20Vi%20sobre%20o%20Navalha%20no%20Bigode%20e%20quero%20saber%20mais%20para%20minha%20barbearia." target="_blank" rel="noopener">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.103.546 4.08 1.503 5.805L0 24l6.335-1.482C8.05 23.456 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.51-5.168-1.402l-.37-.22-3.83.896.93-3.718-.242-.383C2.509 15.558 2 13.84 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
     Falar pelo WhatsApp
   </a>
@@ -852,7 +938,7 @@
     </svg>
     Navalha no Bigode
   </a>
-  <span class="footer-copy">© 2025 Navalha no Bigode · Agendamento Online para Barbearias</span>
+  <span class="footer-copy">© 2026 Navalha no Bigode · Agendamento Online para Barbearias · <a href="/privacidade.html" style="color:inherit;">Privacidade</a></span>
 </footer>
 
 <script>
