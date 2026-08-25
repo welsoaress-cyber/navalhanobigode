@@ -236,9 +236,7 @@
   }
   .bc-bar { position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 60%, transparent 100%); }
   .bc-logo { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); }
-  .bc-mascot { display: block; width: 48px; }
-  .bc-mascot img { width: 100%; height: auto; display: block; filter: invert(1) brightness(1.4); opacity: 0.95; }
-  .bc-name { }
+  
   .bc-name { position: absolute; top: 54%; left: 16px; right: 16px; transform: translateY(-42%); text-align: center; }
   .bc-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); opacity: 0.9; margin-bottom: 4px; }
   .bc-orna { display: flex; align-items: center; gap: 10px; margin: 6px auto 2px; max-width: 170px; color: var(--gold); font-size: 8px; }
@@ -648,7 +646,12 @@
         <div class="bc-side-label">Frente</div>
         <div class="biz-card">
           <div class="bc-bar"></div>
-          <div class="bc-logo"><span class="bc-mascot"></span></div>
+          <div class="bc-logo">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#D4A843" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/>
+              <line x1="20" y1="4" x2="8.2" y2="15.8"/><line x1="14.5" y1="14.5" x2="20" y2="20"/><line x1="8.2" y1="8.2" x2="12" y2="12"/>
+            </svg>
+          </div>
           <div class="bc-name">
             <div class="bc-eyebrow">— Barbearia —</div>
             <h2>Estevão</h2>
@@ -871,17 +874,5 @@
   pc.addEventListener('scroll', function () {
     if (!hidden && pc.scrollLeft > 30) { hidden = true; arrow.style.display = 'none' }
   }, { passive: true })
-})()
-
-// Mascote do site dentro do selo do cartão de exemplo
-;(function () {
-  var hero = document.querySelector('.mascot-img')
-  var slot = document.querySelector('.bc-mascot')
-  if (hero && slot) {
-    var m = hero.cloneNode()
-    m.removeAttribute('class')
-    m.removeAttribute('style')
-    slot.appendChild(m)
-  }
 })()
 </script>
