@@ -976,5 +976,23 @@
   }, { passive: true })
 })()
 </script>
+<script>
+// ── Conversões do Google Ads ──
+// Rótulos gerados no painel do Ads (Metas → Conversões). Vazio = não dispara.
+var CONV = {
+  criar: '',    // clique em "Criar minha barbearia" (intenção forte)
+  whatsapp: ''  // clique nos botões de WhatsApp (conversão secundária)
+}
+function conv(label, params) {
+  if (!label || typeof gtag !== 'function') return
+  gtag('event', 'conversion', Object.assign({ send_to: 'AW-18408907250/' + label, transport_type: 'beacon' }, params || {}))
+}
+document.querySelectorAll('a[href^="https://cadastro."]').forEach(function (a) {
+  a.addEventListener('click', function () { conv(CONV.criar) })
+})
+document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+  a.addEventListener('click', function () { conv(CONV.whatsapp) })
+})
+</script>
 </body>
 </html>
