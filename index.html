@@ -1262,12 +1262,14 @@ function calcUpdate(){
 sliderNoshow.addEventListener('input', () => {
   painState.noshow = +sliderNoshow.value;
   document.getElementById('painNoshow').textContent = painState.noshow;
-  painUpdate(false); // don't re-sync sliders to avoid loop
+  painUpdate(false);
+  calcUpdate();
 });
 sliderTicket.addEventListener('input', () => {
   painState.ticket = +sliderTicket.value;
   document.getElementById('painTicket').textContent = painState.ticket;
   painUpdate(false);
+  calcUpdate();
 });
 calcUpdate();
 
