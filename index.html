@@ -1023,10 +1023,11 @@
 </script>
 <script>
 // ── Conversões do Google Ads ──
-// Rótulos gerados no painel do Ads (Metas → Conversões). Vazio = não dispara.
+// Rótulos: cole o rótulo do painel (Metas → Conversões → rótulo da ação).
+// Vazio = evento não dispara (seguro deixar vazio até criar a ação no painel).
 var CONV = {
-  criar: '',    // clique em "Criar minha barbearia" (intenção forte)
-  whatsapp: ''  // clique nos botões de WhatsApp (conversão secundária)
+  criar: '',    // clique em "Criar minha barbearia" — crie a ação no Ads e cole aqui
+  whatsapp: ''  // clique nos botões de WhatsApp — opcional
 }
 function conv(label, params) {
   if (!label || typeof gtag !== 'function') return
@@ -1038,6 +1039,26 @@ document.querySelectorAll('a[href^="https://cadastro."]').forEach(function (a) {
 document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
   a.addEventListener('click', function () { conv(CONV.whatsapp) })
 })
+
+// ── gclid passthrough: preserva atribuição do clique no Ads ao navegar para cadastro ──
+// Quando o Google Ads envia o usuário aqui, o gclid vem na URL.
+// Sem isso, a conversão em cadastro.navalhanobigode.com.br pode não ser atribuída ao clique.
+;(function () {
+  var p = new URLSearchParams(window.location.search)
+  var gclid     = p.get('gclid')
+  var gclsrc    = p.get('gclsrc')
+  var gadSource = p.get('gad_source')
+  if (!gclid && !gadSource) return
+  document.querySelectorAll('a[href^="https://cadastro."]').forEach(function (a) {
+    try {
+      var u = new URL(a.href)
+      if (gclid)     u.searchParams.set('gclid', gclid)
+      if (gclsrc)    u.searchParams.set('gclsrc', gclsrc)
+      if (gadSource) u.searchParams.set('gad_source', gadSource)
+      a.href = u.toString()
+    } catch (e) {}
+  })
+})()
 </script>
 </body>
 </html>
